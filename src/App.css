@@ -1,38 +1,194 @@
-.App {
-  text-align: center;
+@import url("//cdn.web-fonts.ge/fonts/bpg-arial/css/bpg-arial.min.css");
+
+:root {
+  --color-green-dark: #56ab2f;
+  --color-green-light: #a8e063;
+  --color-yellow: #ffc300;
+  --color-red: #cc0000;
+}
+* {
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; /* 1rem === 10px */
 }
 
-.App-header {
-  background-color: #282c34;
+body {
+  font-family: "BPG Arial", sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  font-size: 1.4rem;
+  letter-spacing: 0.1rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+.personal-link {
+  color: #fff;
+  margin: 2rem 0;
+}
+.personal-link:hover {
+  color: #eee;
+}
+
+select,
+button,
+input {
+  font: inherit;
+}
+
+.container {
   min-height: 100vh;
+  width: 100%;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-direction: column;
+  background-image: linear-gradient(
+    to left,
+    var(--color-green-dark),
+    var(--color-green-light)
+  );
 }
 
-.App-link {
-  color: #61dafb;
+.user {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 5rem;
+  background-color: #eee;
+  border-radius: 1rem;
+}
+.user input,
+.user select {
+  margin: 1rem 0;
+  padding: 0.25rem 1rem;
+  width: 100%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.user h1 {
+  font-size: 3rem;
+  font-weight: 300;
+  margin-bottom: 0.5rem;
+}
+
+.btn {
+  border: none;
+  padding: 0.7rem 1rem;
+  cursor: pointer;
+  margin: 1rem 0;
+}
+
+.btn:active {
+  transform: translateY(3px);
+  transition: transform 0.2s;
+}
+
+.btn-green {
+  background-color: var(--color-green-dark);
+  color: #fff;
+}
+.btn-yellow {
+  background-color: var(--color-yellow);
+  color: #fff;
+}
+.btn-green:hover {
+  background-color: var(--color-green-light);
+  color: #000;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+/*tooltip*/
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltip-text {
+  visibility: visible;
+  width: 16rem;
+  background-color: #282828;
+  color: #fff;
+  text-align: center;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  position: absolute;
+  z-index: 1;
+  top: -0.5rem;
+  left: 105%;
+}
+
+.grid {
+  border-collapse: collapse;
+  width: 90vw;
+  margin: 3rem auto;
+  background-color: #fff;
+}
+
+.grid svg {
+  height: 1.8rem;
+  width: 1.8rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.delete-item svg {
+  fill: var(--color-red);
+}
+
+.edit-item svg {
+  fill: var(--color-yellow);
+}
+
+.delete-item,
+.edit-item {
+  position: relative;
+}
+
+.grid svg:hover {
+  cursor: pointer;
+}
+
+.grid,
+.grid td,
+.grid th {
+  border: 1px solid #282828;
+}
+
+.grid th {
+  font-size: 1.5rem;
+  color: #282828;
+}
+
+.grid td {
+  height: 5rem;
+  padding: 0.5rem;
+  vertical-align: bottom;
+}
+
+.grid tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+.react-responsive-modal-modal {
+  width: 70vw;
+}
+
+.react-responsive-modal-modal form {
+  padding: 0.5rem 2rem;
+  margin: 1rem;
 }
